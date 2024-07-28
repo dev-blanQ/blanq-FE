@@ -27,6 +27,6 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: true
-          tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/blankq_target_image:$GITHUB_SHA
+          tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/blankq_target_image:latest
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GIT_TOKEN }}
