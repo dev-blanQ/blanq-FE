@@ -7,7 +7,6 @@ FROM node:18-alpine
 WORKDIR /app
 
 COPY . .
-COPY .env .env
 
 RUN yarn install
 
