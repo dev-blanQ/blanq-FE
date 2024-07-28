@@ -1,0 +1,5 @@
+const LOCAL_STORAGE_KEY = {
+  EMAIL_CHECK_BOX: 'LS_EMAIL',
+}
+
+export default LOCAL_STORAGE_KEY
