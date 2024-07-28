@@ -1,4 +1,3 @@
-import { FormBtn, StateModal } from '@/components/common'
 import { useModalActions, useModalStore } from '@/store/modal'
 import { FONTS } from '@/styles/font'
 import styled from '@emotion/styled'
@@ -35,17 +34,6 @@ const SignupForm = () => {
 
   return (
     <Section onSubmit={submitSignupForm}>
-      {errorMsg && (
-        <>
-          <StateModal
-            content={errorMsg}
-            type="warning"
-            isOpen={isOpen}
-            handleClose={closeModal}
-          />
-        </>
-      )}
-
       <Form>
         {SIGNUP_FORM.map(({ label, id, type, placeholder, name }, idx) => (
           <InputWrapper key={idx}>
@@ -59,16 +47,10 @@ const SignupForm = () => {
               value={values[name]}
               onChange={(e) => handleInputChange(e.target.name, e.target.value)}
             />
-            {name == 'dsName' && (
-              <DiscordIdBtn onClick={handleDiscordOAuthPopup}>
-                아이디 <br />
-                찾기
-              </DiscordIdBtn>
-            )}
           </InputWrapper>
         ))}
 
-        <SignupBtn>회원가입</SignupBtn>
+        <button>회원가입</button>
       </Form>
       <Link onClick={goLoginPage}> 로그인</Link>
     </Section>
@@ -82,16 +64,6 @@ const Section = styled.section`
 `
 
 const Form = styled.form``
-
-const DiscordIdBtn = styled(FormBtn)`
-  width: 5rem;
-  height: 4rem;
-  ${FONTS.body9}
-`
-
-const SignupBtn = styled(FormBtn)`
-  margin: 3.2rem 0;
-`
 
 const InputWrapper = styled.div`
   display: flex;

@@ -1,28 +1,12 @@
-import { FONTS } from '@/styles/font'
-import styled from '@emotion/styled'
+import St from './styles'
 
 const Title = () => {
   return (
-    <Header>
-      <Main>BlanQ</Main>
-      <Content>하루에 한번, 케미를 채우는 빈칸퀴즈</Content>
-    </Header>
+    <St.Container>
+      <St.Main>BlanQ</St.Main>
+      <St.Content>하루에 한번, 케미를 채우는 빈칸퀴즈</St.Content>
+    </St.Container>
   )
 }
 
 export default Title
-const Header = styled.header`
-  /*color: var(--color-green-400);*/
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`
-
-const Main = styled.h1`
-  ${FONTS.h1}
-  margin-bottom:1rem;
-`
-
-const Content = styled.p`
-  ${FONTS.body2}
-`

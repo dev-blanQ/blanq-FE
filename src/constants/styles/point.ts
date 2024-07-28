@@ -1,5 +1,4 @@
-import { PointBtnInfoProps } from '@/types'
-const BLANK_POINT: PointBtnInfoProps = {
+const BLANK_POINT: any = {
   size: {
     width: 10.8,
   },

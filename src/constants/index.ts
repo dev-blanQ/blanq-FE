@@ -7,11 +7,7 @@ import { Bounce } from './styles/animations'
 import { withAuthList, withOutAuthList, FALLBACK_URL } from './routeUrl'
 import { BOTTOM_MENU_INFO } from './menu/bottom'
 import { STATE_MODAL_TYPE_INFO } from './modal/state'
-import {
-  USER_POINT_BTN,
-  MENU_POINT_BTN,
-  GAME_START_POINT_BTN,
-} from './styles/point'
+
 import {
   SIGNUP_FORM,
   SIGNUP_INITIAL_VALUES,
@@ -35,9 +31,6 @@ export {
   FALLBACK_URL,
   BOTTOM_MENU_INFO,
   STATE_MODAL_TYPE_INFO,
-  USER_POINT_BTN,
-  MENU_POINT_BTN,
-  GAME_START_POINT_BTN,
   SIGNUP_FORM,
   SIGNUP_INITIAL_VALUES,
   SIGNUP_VALIDATION,

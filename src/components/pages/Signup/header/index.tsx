@@ -1,15 +1,10 @@
-import { Logo, Triangle } from '@/components/common'
 import { FONTS } from '@/styles/font'
 import styled from '@emotion/styled'
 
 const Header = () => {
   return (
     <>
-      <Logo type="primary" />
-      <TitleWrapper>
-        JOIN US
-        <Triangle type="authTitle" />
-      </TitleWrapper>
+      <TitleWrapper>HJOIN</TitleWrapper>
     </>
   )
 }

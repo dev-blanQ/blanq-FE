@@ -9,7 +9,7 @@ import {
   triangleTypeInfoProps,
   TriangleProps,
 } from './styles/triangle'
-import { IMAGE_ADDRESS_KEY } from './styles/styleSheet'
+
 import { BottomMenuInfoProps } from './styles/bottomMenu'
 import {
   ModalStoreProps,
@@ -22,7 +22,7 @@ import {
   ModalStateKeyProps,
   ModalStateInfoProps,
 } from './modal/stateModal'
-import { PointBtnInfoProps } from './button/point'
+
 import { signupProps, signupValidationProps } from './form/signup'
 import { loginProps, loginValidationProps } from './form/login'
 import { visitProps, visitValidationProps } from './visit'
@@ -58,7 +58,6 @@ export type {
   ModalStateTypeOverlayInfoProps,
   ModalStateKeyProps,
   ModalStateInfoProps,
-  PointBtnInfoProps,
   signupProps,
   signupValidationProps,
   loginProps,
@@ -75,7 +74,6 @@ export type {
   GameCardStatusKey,
   playStateActionKey,
   GameStatusKey,
-  IMAGE_ADDRESS_KEY,
   ModalStoreProps,
   ModalStateProps,
   ModalActionsProps,
