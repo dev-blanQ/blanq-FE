@@ -6,15 +6,15 @@ const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
 `
 
-const Main = styled.h1`
-  ${FONTS.KOREAN.h1}
-  margin-bottom:1rem;
+const Main = styled.div`
+  ${FONTS.ENGLISH.h1}
 `
 
 const Content = styled.p`
-  ${FONTS.KOREAN.body2}
+  ${FONTS.KOREAN.body1}
 `
 
 const St = {
