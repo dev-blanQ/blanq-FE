@@ -13,6 +13,5 @@ const Cubic = styled(DefaultBtn)`
   color: var(--color-yellow-100);
   background-color: var(--color-green-400);
   height: 4rem;
-  ${FONTS.body3}
 `
 export { DefaultBtn, Cubic }

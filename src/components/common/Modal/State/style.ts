@@ -29,7 +29,7 @@ const St = {
     padding: 0 2.4rem;
   `,
   TextWrapper: styled.div`
-    ${FONTS.body5}
+    ${FONTS.KOREAN.body3}
   `,
   IconWrapper: styled.div`
     padding-right: 1.5rem;

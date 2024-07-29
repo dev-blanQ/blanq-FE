@@ -1,121 +1,88 @@
 import { fontProps } from '@/types'
 
-function FONT({ weight, size, lineHeight, letterSpacing }: fontProps): string {
+function FONT({ weight, size, letterSpacing }: fontProps): string {
   return `
     font-family:inherit;
     font-weight: ${weight};
     font-size: ${size}rem;
-    line-height: ${lineHeight};
     letter-spacing: ${letterSpacing};
   `
 }
 
-export const FONTS = {
+const KOREAN = {
   h1: FONT({
-    weight: 700,
-    size: 6,
-    lineHeight: 'normal',
+    weight: 800,
+    size: 2,
+
     letterSpacing: 'normal',
   }),
   //h2: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 4 }),
   //body1: FONT({ weight: 600, size: 1.6, lineHeight: 140, letterSpacing: 3 }),
-  body2: FONT({
-    weight: 700,
-    size: 1.5,
-    lineHeight: 'normal',
+  h2: FONT({
+    weight: 800,
+    size: 1.8,
+
     letterSpacing: 'normal',
   }),
 
+  h3: FONT({
+    weight: 800,
+    size: 1.2,
+
+    letterSpacing: 'normal',
+  }),
+  body1: FONT({
+    weight: 700,
+    size: 1.6,
+
+    letterSpacing: 'normal',
+  }),
+  body2: FONT({
+    weight: 700,
+    size: 1.2,
+
+    letterSpacing: 'normal',
+  }),
   body3: FONT({
     weight: 700,
-    size: 1.6,
-    lineHeight: 'normal',
+    size: 1.0,
+
     letterSpacing: 'normal',
   }),
-  body4: FONT({
-    weight: 400,
-    size: 1.6,
-    lineHeight: 'normal',
+}
+
+const ENGLISH = {
+  h1: FONT({
+    weight: 800,
+    size: 6,
+
     letterSpacing: 'normal',
   }),
-  body5: FONT({
+  //h2: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 4 }),
+  //body1: FONT({ weight: 600, size: 1.6, lineHeight: 140, letterSpacing: 3 }),
+  h2: FONT({
+    weight: 800,
+    size: 1.35,
+
+    letterSpacing: 'normal',
+  }),
+  body1: FONT({
     weight: 700,
-    size: 1.6,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body6: FONT({
-    weight: 400,
-    size: 1.6,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body7: FONT({
-    weight: 700,
-    size: 1.4,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body8: FONT({
-    weight: 400,
-    size: 1.4,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body9: FONT({
-    weight: 700,
-    size: 1.2,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body10: FONT({
-    weight: 400,
-    size: 1.2,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  //body5: FONT({ weight: 700, size: 2.4, lineHeight: 140, letterSpacing: 4 }),
-  //body6: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 3 }),
-  //body7: FONT({ weight: 500, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  /*body8: FONT({
-    weight: 400,
     size: 2,
-    lineHeight: 140,
-    letterSpacing: 4,
-    notoSans: true,
-  }),*/
-  //body9: FONT({ weight: 600, size: 2, lineHeight: 130, letterSpacing: 3 }),
-  //body10: FONT({ weight: 600, size: 2.4, lineHeight: 130, letterSpacing: 4 }),
-  //body11: FONT({ weight: 400, size: 1.5, lineHeight: 140, letterSpacing: 4 }),
-  //body12: FONT({ weight: 400, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  /*caption1: FONT({
-    weight: 400,
-    size: 1.2,
-    lineHeight: 'normal',
+
     letterSpacing: 'normal',
-  }),*/
-  //caption2: FONT({ weight: 500, size: 1, lineHeight: 130, letterSpacing: 4 }),
-  //caption3: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  //caption4: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 3 }),
-  //caption5: FONT({ weight: 400, size: 1.1, lineHeight: 140, letterSpacing: 4 }),
-  /*caption05: FONT({
+  }),
+  body2: FONT({
     weight: 700,
-    size: 1.2,
-    lineHeight: 140,
-    letterSpacing: 4,
-  }),*/
-  //btn1: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 3 }),
-  //btn2: FONT({ weight: 400, size: 1.4, lineHeight: 130, letterSpacing: 4 }),
-  //btn3: FONT({ weight: 300, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  //btn4: FONT({ weight: 300, size: 1, lineHeight: 140, letterSpacing: 4 }),
-  //footer1: FONT({ weight: 600, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  //footer2: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  /*cardBody5: FONT({
-    weight: 700,
-    size: 2.3,
-    lineHeight: 140,
-    letterSpacing: 4,
-  }),*/
+    size: 1.35,
+
+    letterSpacing: 'normal',
+  }),
+}
+
+export const FONTS = {
+  KOREAN,
+  ENGLISH,
 }
 
 export type FontsKeyType = keyof typeof FONTS

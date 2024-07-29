@@ -1,8 +1,7 @@
 import { Background, DefaultBtn } from '@/components/common'
-import { BLANK_POINT } from '@/constants/styles/point'
 
 const Home = () => {
-  return <DefaultBtn>HOME</DefaultBtn>
+  return <DefaultBtn>HOME 홈</DefaultBtn>
 }
 
 export default Home
