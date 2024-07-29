@@ -1,16 +1,47 @@
+import parseCookies from './parseCookies'
 import axios from 'axios'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const BASE_URL = 'https://www.cognisle.shop'
+// 쿠키에 저장된 토큰을 인증 헤더에 자동으로 추가하여 요청을 보낼 수 있습니다.
+function createAuthAxios(req: NextApiRequest) {
+  const instance = axios.create({
+    baseURL: '스프링 서버 URL',
+  })
 
-export const axiosServer = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-    withCredentials: true,
-  },
-})
-//
-export const axiosAuth = axios.create({
-  baseURL: BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
-})
+  instance.interceptors.request.use(
+    async (config) => {
+      const cookies = parseCookies(req.headers.cookie ?? '')
+
+      if (cookies?.token) {
+        config.headers.Authorization = `Bearer ${cookies?.token}`
+      }
+
+      return config
+    },
+    (error) => {
+      return Promise.reject(error)
+    },
+  )
+
+  return instance
+}
+
+// 쿠키에 저장된 토큰을 인증 헤더에 없이 서버에 요청 보내기
+function createDefatultAxios() {
+  const instance = axios.create({
+    baseURL: '스프링 서버 URL',
+  })
+
+  return instance
+}
+
+// nextjs api
+function createNextHttp() {
+  const instance = axios.create({
+    baseURL: '/api',
+  })
+
+  return instance
+}
+
+export { createAuthAxios, createDefatultAxios, createNextHttp }
