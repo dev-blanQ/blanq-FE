@@ -112,7 +112,7 @@ export default css`
   }
   body {
     line-height: 1;
-    font-family: 'NanumSquareNeo', 'Noto Sans', sans-serif;
+    font-family: 'NanumSquareNeo', 'Poppins', 'Noto Sans', sans-serif;
   }
   ol,
   ul {

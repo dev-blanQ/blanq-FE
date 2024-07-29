@@ -1,4 +1,22 @@
 @font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap; /*로딩 되지 않았을 때 시스템 폰트*/
+  src: url('PoppinsExtraBold.ttf') format('ttf');
+  /* unicode-range:U+AC00-D7A3,U+0030-0039;;	/* 한글과 숫자 => 현재 전체 텍스트 폰트로 적용*/
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap; /*로딩 되지 않았을 때 시스템 폰트*/
+  src: url('PoppinsBold.ttf') format('ttf');
+  /* unicode-range:U+AC00-D7A3,U+0030-0039;;	/* 한글과 숫자 => 현재 전체 텍스트 폰트로 적용*/
+}
+
+@font-face {
   font-family: 'NanumSquareNeo'; /*가는 (Light)*/
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
   src:
@@ -10,6 +28,7 @@
       format('truetype');
   font-weight: 300;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 
 @font-face {
@@ -24,6 +43,7 @@
       format('truetype');
   font-weight: 400;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 
 @font-face {
@@ -38,6 +58,7 @@
       format('truetype');
   font-weight: 700;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 
 @font-face {
@@ -52,6 +73,7 @@
       format('truetype');
   font-weight: 800;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 
 @font-face {
@@ -66,6 +88,7 @@
       format('truetype');
   font-weight: 900;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 
 @font-face {
@@ -80,4 +103,5 @@
       format('truetype');
   font-weight: 400;
   font-style: normal;
+  unicode-range: U+AC00-D7A3, U+0030-0039;
 }
