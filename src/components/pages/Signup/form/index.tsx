@@ -73,8 +73,6 @@ const InputWrapper = styled.div`
   gap: 1rem;
   width: 28rem;
   margin-bottom: 1.5rem;
-
-  ${FONTS.body5}
 `
 const InputLabel = styled.div`
   text-align: end;
@@ -82,7 +80,6 @@ const InputLabel = styled.div`
   display: inline-block;
 `
 const Input = styled.input`
-  ${FONTS.body4};
   color: var(--color-green-400);
   background-color: transparent;
   border-bottom: 0.1rem solid var(--color-green-400);
@@ -96,5 +93,4 @@ const Input = styled.input`
 const Link = styled.div`
   text-align: center;
   text-decoration: underline;
-  ${FONTS.body4};
 `

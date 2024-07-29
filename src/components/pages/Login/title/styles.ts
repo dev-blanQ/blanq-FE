@@ -9,12 +9,12 @@ const Container = styled.header`
 `
 
 const Main = styled.h1`
-  ${FONTS.h1}
+  ${FONTS.KOREAN.h1}
   margin-bottom:1rem;
 `
 
 const Content = styled.p`
-  ${FONTS.body2}
+  ${FONTS.KOREAN.body2}
 `
 
 const St = {

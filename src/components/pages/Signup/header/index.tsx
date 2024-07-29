@@ -12,7 +12,6 @@ const Header = () => {
 export default Header
 
 const TitleWrapper = styled.div`
-  ${FONTS.body2}
   color: var(--color-green-400);
   text-align: center;
   display: flex;

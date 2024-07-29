@@ -20,7 +20,7 @@ export const St = {
     background-color: var(--color-yellow-100);
 
     height: 4rem;
-    ${FONTS.body4};
+
     padding: 0 1.6rem;
     &::placeholder {
       color: var(--color-green-400);
