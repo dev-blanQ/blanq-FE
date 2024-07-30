@@ -11,7 +11,7 @@ const Current = ({
   return (
     <St.IndicatorContainer>
       {arr.map((_, idx) => (
-        <St.Indicator isCurrent={currentSlide === idx} />
+        <St.Indicator isCurrent={currentSlide === idx} key={idx} />
       ))}
     </St.IndicatorContainer>
   )

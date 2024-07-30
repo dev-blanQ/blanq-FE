@@ -1,88 +1,63 @@
 import { fontProps } from '@/types'
 
-function FONT({ weight, size, letterSpacing }: fontProps): string {
+function FONT({ font, weight, size, letterSpacing }: fontProps): string {
   return `
-    font-family:inherit;
+    font-family:${font};
     font-weight: ${weight};
     font-size: ${size}rem;
     letter-spacing: ${letterSpacing};
   `
 }
 
-const KOREAN = {
-  h1: FONT({
-    weight: 800,
-    size: 2,
-
-    letterSpacing: 'normal',
-  }),
-  //h2: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 4 }),
-  //body1: FONT({ weight: 600, size: 1.6, lineHeight: 140, letterSpacing: 3 }),
-  h2: FONT({
-    weight: 800,
-    size: 1.8,
-
-    letterSpacing: 'normal',
-  }),
-
-  h3: FONT({
-    weight: 800,
-    size: 1.2,
-
-    letterSpacing: 'normal',
-  }),
-  body1: FONT({
-    weight: 700,
-    size: 1.6,
-
-    letterSpacing: 'normal',
-  }),
-  body2: FONT({
-    weight: 700,
-    size: 1.2,
-
-    letterSpacing: 'normal',
-  }),
-  body3: FONT({
-    weight: 700,
-    size: 1.0,
-
-    letterSpacing: 'normal',
-  }),
-}
-
-const ENGLISH = {
+export const FONTS = {
   h1: FONT({
     weight: 800,
     size: 6,
-
-    letterSpacing: 'normal',
-  }),
-  //h2: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 4 }),
-  //body1: FONT({ weight: 600, size: 1.6, lineHeight: 140, letterSpacing: 3 }),
-  h2: FONT({
-    weight: 800,
-    size: 1.35,
-
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body1: FONT({
-    weight: 700,
-    size: 2,
-
+    weight: 600,
+    size: 1.8,
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body2: FONT({
-    weight: 700,
-    size: 1.35,
-
+    weight: 600,
+    size: 1.4,
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
-}
-
-export const FONTS = {
-  KOREAN,
-  ENGLISH,
+  body3: FONT({
+    weight: 500,
+    size: 1.6,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
+  body4: FONT({
+    weight: 500,
+    size: 1.4,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
+  body5: FONT({
+    weight: 400,
+    size: 1.6,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
+  body6: FONT({
+    weight: 400,
+    size: 1.4,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
+  logo: FONT({
+    weight: 700,
+    size: 2,
+    font: 'Poppins',
+    letterSpacing: 'normal',
+  }),
 }
 
 export type FontsKeyType = keyof typeof FONTS

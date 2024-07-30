@@ -10,11 +10,11 @@ const Container = styled.header`
 `
 
 const Main = styled.div`
-  ${FONTS.ENGLISH.h1}
+  ${FONTS.h1}
 `
 
 const Content = styled.p`
-  ${FONTS.KOREAN.body1}
+  ${FONTS.body1}
 `
 
 const St = {

@@ -24,7 +24,7 @@ function Layout({ children }: LayoutProps) {
 
       <Container>
         {' '}
-        {!withOutTabbar.includes(pathname) && <Header />}
+        {/*!withOutTabbar.includes(pathname) && <Header />*/}
         {children}
         {!withOutTabbar.includes(pathname) && <BottomMenu />}
       </Container>

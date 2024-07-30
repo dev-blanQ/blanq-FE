@@ -1,44 +1,36 @@
 import { BottomMenuInfoProps } from '@/types'
 
+const DEFAULT_SIZE = {
+  width: 18,
+  height: 18,
+}
+
 export const BOTTOM_MENU_INFO: BottomMenuInfoProps[] = [
   {
-    link: '/game',
+    link: '/blanQ',
     image: {
-      active: '/assets/green/game.svg',
-      inactive: '/assets/yellow/game.svg',
-      height: 36,
-      width: 27,
-      alt: 'game',
+      active: '/assets/menu/active/blanQ.png',
+      inactive: '/assets/menu/inactive/blanQ.png',
+      alt: 'blanQ',
+      ...DEFAULT_SIZE,
     },
   },
   {
-    link: '/island',
+    link: '/chemi',
     image: {
-      active: '/assets/green/island.svg',
-      inactive: '/assets/yellow/island.svg',
-      height: 36,
-      width: 47,
-      alt: 'island',
+      active: '/assets/menu/active/chemi.png',
+      inactive: '/assets/menu/inactive/chemi.png',
+      alt: 'chemi',
+      ...DEFAULT_SIZE,
     },
   },
   {
-    link: '/visit',
+    link: '/my',
     image: {
-      active: '/assets/green/visit.svg',
-      inactive: '/assets/yellow/visit.svg',
-      height: 36,
-      width: 63,
-      alt: 'visit',
-    },
-  },
-  {
-    link: '/collection',
-    image: {
-      active: '/assets/green/collection.svg',
-      inactive: '/assets/yellow/collection.svg',
-      height: 36,
-      width: 34,
-      alt: 'collection',
+      active: '/assets/menu/active/my.png',
+      inactive: '/assets/menu/inactive/my.png',
+      alt: 'my',
+      ...DEFAULT_SIZE,
     },
   },
 ]

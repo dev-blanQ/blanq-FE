@@ -5,7 +5,6 @@ import SEO from './Layout/SEO'
 
 import Header from './Header'
 import BottomMenu from './BottomMenu'
-import Divider from './Divider'
 
 export {
   DefaultBtn,
@@ -15,5 +14,4 @@ export {
   SEO,
   Header,
   BottomMenu,
-  Divider,
 }

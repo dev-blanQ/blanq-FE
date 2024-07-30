@@ -1,12 +1,10 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import Logo from '../Logo'
-import Triangle from '../Triangle'
 
 const Header = () => {
   return (
     <Container>
-      <Triangle type="header" />
       <Link href="/">
         <Logo type="secondary" />
       </Link>

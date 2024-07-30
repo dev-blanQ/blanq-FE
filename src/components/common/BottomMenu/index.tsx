@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { BOTTOM_MENU_INFO } from '@/constants'
 import { BottomMenuInfoProps } from '@/types'
-import Divider from '../Divider'
 
 const BottomMenu = () => {
   const { pathname } = useRouter()
@@ -19,17 +18,17 @@ const BottomMenu = () => {
           }: BottomMenuInfoProps,
           idx,
         ) => (
-          <>
-            <Link href={link}>
+          <Link href={link}>
+            <MenuWrapper>
               <Image
                 src={link === pathname ? active : inactive}
                 alt={alt}
                 width={width}
                 height={height}
               />
-            </Link>
-            {idx < BOTTOM_MENU_INFO.length - 1 && <Divider />}
-          </>
+              <Text>{alt}</Text>
+            </MenuWrapper>
+          </Link>
         ),
       )}
     </TabsWrapper>
@@ -43,10 +42,20 @@ const TabsWrapper = styled.div`
   bottom: 0;
   width: inherit;
 
-  background-color: var(--color-green-400);
+  background-color: var(--color-black);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1.8rem 0;
+  padding: 1.5rem 0;
+  border-radius: 1.5rem;
+`
+const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+`
+const Text = styled.p`
+  color: var(--color-gray-100);
 `
