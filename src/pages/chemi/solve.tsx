@@ -1,5 +1,7 @@
+import InfoBlock from '@/components/common/InfoBlock'
+
 const Solve = () => {
-  return <div>solve blaQ-uiz</div>
+  return <InfoBlock />
 }
 
 export default Solve
