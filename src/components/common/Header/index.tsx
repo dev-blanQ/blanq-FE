@@ -1,23 +1,16 @@
-import styled from '@emotion/styled'
-import Link from 'next/link'
-import Logo from '../Logo'
+import { useRouter } from 'next/router'
+import { ROUTE_HEADER_MAPPING } from '@/constants'
+import Point from './Point'
+import { StyledRoot, Title } from './styles'
 
 const Header = () => {
+  const { pathname } = useRouter()
   return (
-    <Container>
-      <Link href="/">
-        <Logo type="secondary" />
-      </Link>
-    </Container>
+    <StyledRoot>
+      <Title>{ROUTE_HEADER_MAPPING[pathname]}</Title>
+      <Point />
+    </StyledRoot>
   )
 }
 
 export default Header
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 3.2rem;
-`

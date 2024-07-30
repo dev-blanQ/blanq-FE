@@ -9,15 +9,30 @@ function FONT({ font, weight, size, letterSpacing }: fontProps): string {
   `
 }
 
+const HEADER = {
+  title: FONT({
+    weight: 700,
+    size: 2,
+    font: 'Poppins',
+    letterSpacing: 'normal',
+  }),
+  body: FONT({
+    weight: 600,
+    size: 1.3,
+    font: 'Poppins',
+    letterSpacing: 'normal',
+  }),
+}
+
 export const FONTS = {
   h1: FONT({
-    weight: 800,
+    weight: 800 /*ExtraBold*/,
     size: 6,
     font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body1: FONT({
-    weight: 600,
+    weight: 600 /*SemiBold*/,
     size: 1.8,
     font: 'Pretendard',
     letterSpacing: 'normal',
@@ -29,19 +44,19 @@ export const FONTS = {
     letterSpacing: 'normal',
   }),
   body3: FONT({
-    weight: 500,
+    weight: 500 /*Medium*/,
     size: 1.6,
     font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body4: FONT({
     weight: 500,
-    size: 1.4,
+    size: 1.2,
     font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body5: FONT({
-    weight: 400,
+    weight: 400 /*Regular*/,
     size: 1.6,
     font: 'Pretendard',
     letterSpacing: 'normal',
@@ -52,12 +67,7 @@ export const FONTS = {
     font: 'Pretendard',
     letterSpacing: 'normal',
   }),
-  logo: FONT({
-    weight: 700,
-    size: 2,
-    font: 'Poppins',
-    letterSpacing: 'normal',
-  }),
+  HEADER,
 }
 
 export type FontsKeyType = keyof typeof FONTS

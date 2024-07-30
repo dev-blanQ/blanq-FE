@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { BOTTOM_MENU_INFO } from '@/constants'
 import { BottomMenuInfoProps } from '@/types'
+import { FONTS } from '@/styles/font'
 
 const BottomMenu = () => {
   const { pathname } = useRouter()
@@ -26,7 +27,7 @@ const BottomMenu = () => {
                 width={width}
                 height={height}
               />
-              <Text>{alt}</Text>
+              <Text isActive={link === pathname ? true : false}>{alt}</Text>
             </MenuWrapper>
           </Link>
         ),
@@ -49,6 +50,7 @@ const TabsWrapper = styled.div`
   justify-content: space-evenly;
   padding: 1.5rem 0;
   border-radius: 1.5rem;
+  ${FONTS.body4};
 `
 const MenuWrapper = styled.div`
   display: flex;
@@ -56,6 +58,7 @@ const MenuWrapper = styled.div`
   align-items: center;
   gap: 0.6rem;
 `
-const Text = styled.p`
-  color: var(--color-gray-100);
+const Text = styled.p<{ isActive: boolean }>`
+  color: ${({ isActive }) =>
+    isActive ? `var(--color-white)` : `var(--color-gray-100)`};
 `
