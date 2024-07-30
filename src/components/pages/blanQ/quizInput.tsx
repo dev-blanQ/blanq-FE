@@ -1,21 +1,12 @@
 import { useState } from 'react'
-import {
-  TellMeBox,
-  Main,
-  InputContent,
-  Input,
-  Container,
-  RedoBtn,
-  SubmitBtn,
-  InputContainer,
-} from './styles'
+import St from './styles'
 import Image from 'next/image'
 import { useModalActions, useModalStore } from '@/store/modal'
 import MakeQuizModal from '@/components/common/Modal/MakeQuiz'
 import { useRouter } from 'next/router'
 import { useBlanQActions, useBlanQStore } from '@/store/blanQ'
 
-const MyQuiz = () => {
+const QuizInput = () => {
   const [input, setInput] = useState('')
   const { code, quiz } = useBlanQStore()
   const { setQuiz, setCode } = useBlanQActions()
@@ -55,37 +46,37 @@ const MyQuiz = () => {
           handleSubmitQuiz={handleSubmitQuiz}
         />
       )}
-      <Container>
-        <TellMeBox>
-          <Main>오늘은 무슨 일이 있었나요?</Main>
-          <InputContent>{quiz ? quiz : input}</InputContent>
-        </TellMeBox>
-        <InputContainer>
-          <Input
+      <St.Container>
+        <St.TellMeBox>
+          <St.Main>오늘은 무슨 일이 있었나요?</St.Main>
+          <St.InputContent>{quiz ? quiz : input}</St.InputContent>
+        </St.TellMeBox>
+        <St.InputContainer>
+          <St.Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={'친구들과 공유할 이야기를 적어주세요!'}
           />
           <div>
             {quiz && (
-              <RedoBtn onClick={handleMakeQuiz}>
+              <St.RedoBtn onClick={handleMakeQuiz}>
                 <Image
                   src="/assets/icon/redo.png"
                   alt="redo icon"
                   width={18}
                   height={18}
                 />
-              </RedoBtn>
+              </St.RedoBtn>
             )}
 
-            <SubmitBtn onClick={quiz ? handleWantSave : handleMakeQuiz}>
+            <St.SubmitBtn onClick={quiz ? handleWantSave : handleMakeQuiz}>
               blanQ-uiz {quiz ? '저장' : '생성'}
-            </SubmitBtn>
+            </St.SubmitBtn>
           </div>
-        </InputContainer>
-      </Container>
+        </St.InputContainer>
+      </St.Container>
     </>
   )
 }
 
-export default MyQuiz
+export default QuizInput

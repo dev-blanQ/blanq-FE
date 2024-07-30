@@ -6,10 +6,13 @@ const useSwiper = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const swiperSetting: SwiperProps = {
-    slidesPerView: 1,
+    slidesPerView: 4,
+    spaceBetween: 3,
     rewind: false,
     loop: false,
-
+    onReachEnd: () => {
+      console.log('end')
+    },
     scrollbar: { draggable: true },
     onSlideChange: (swiper: Swiper) => {
       console.log(swiper.realIndex)

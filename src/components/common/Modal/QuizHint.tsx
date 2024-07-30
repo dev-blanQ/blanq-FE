@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import PortalModal from './PortalModal'
 import { useOutsideClick, useKeyEscape, useCopy } from '@/hooks'
 import St from './style'
@@ -10,19 +10,24 @@ interface ModalProp {
   handleClose: () => void
 
   handleQuizCode: () => void
-  quizCode: string
+  name: string
+  sentences: string[]
+  answer: string
 }
 
-const MakeQuizModal = ({
+const QuizHintModal = ({
   isOpen,
   handleClose,
-  handleQuizCode,
 
-  quizCode,
+  name,
+  sentences,
+  answer,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
-  const { isCopy, onCopy } = useCopy()
+
+  const [isBlur, setIsBlur] = useState(true)
+
   useOutsideClick(contentRef, handleClose)
   useKeyEscape('escape', handleClose)
 
@@ -34,7 +39,7 @@ const MakeQuizModal = ({
           role="dialog"
           aria-labelledby="modal-title"
           ref={contentRef}
-          backgroundColor={'--color-yellow-200'}
+          backgroundColor={'--color-blue-100'}
           textColor={'--color-black'}
         >
           <St.CloseBtn onClick={handleClose} className="close-btn">
@@ -48,22 +53,20 @@ const MakeQuizModal = ({
 
           <St.Text.Wrapper>
             <div>
-              <St.Main>blanQ-uiz를 저장했어요!</St.Main>
-              <St.Sub>링크를 공유해서 친구들과 가까워져요</St.Sub>
+              <St.Main>힌트를 알려드릴까요?</St.Main>
+              <St.Sub>포인트 1개를 사용해서 힌트를 볼 수 있어요</St.Sub>
             </div>
-            <St.Text.Container>
-              <span>{quizCode}</span>
-              <button onClick={() => onCopy(quizCode)}>
-                <Image
-                  src={`/assets/icon/copy.png`}
-                  alt="close icon"
-                  width={12}
-                  height={12}
-                />
-              </button>
-            </St.Text.Container>
+            <St.BlurContainer isBlur={isBlur}>
+              {sentences.map((word, idx) => (
+                <span key={idx}>{word != '@' ? word : answer}</span>
+              ))}
+            </St.BlurContainer>
 
-            <St.SubmitBtn onClick={handleQuizCode}>공유하기</St.SubmitBtn>
+            <St.SubmitBtn
+              onClick={() => (isBlur ? setIsBlur(false) : handleClose)}
+            >
+              {isBlur ? '힌트 보기' : '확인 완료'}
+            </St.SubmitBtn>
           </St.Text.Wrapper>
         </St.Content>
       </St.ModalWrapper>
@@ -71,4 +74,4 @@ const MakeQuizModal = ({
   )
 }
 
-export default MakeQuizModal
+export default QuizHintModal

@@ -1,7 +1,4 @@
 import styled from '@emotion/styled'
-import { FONTS } from '@/styles/font'
-
-import { ReactNode } from 'react'
 
 const Gradient = styled.div`
   border-radius: 1.5rem;

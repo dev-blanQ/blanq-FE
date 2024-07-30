@@ -1,5 +1,4 @@
 import { FONTS } from '@/styles/font'
-import { ModalStateInfoProps } from '@/types'
 import styled from '@emotion/styled'
 
 const Black = {
@@ -15,7 +14,7 @@ const Black = {
     gap: 3rem;
   `,
 }
-const Yellow = {
+const Text = {
   Wrapper: styled.div`
     display: flex;
     flex-direction: column;
@@ -27,7 +26,7 @@ const Yellow = {
     }
     gap: 0.5rem;
   `,
-  CopyCodeContainer: styled.div`
+  Container: styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,8 +77,12 @@ const St = {
   Sub: styled.div`
     ${FONTS.body6}
   `,
+
   Black,
-  Yellow,
+  Text,
+  BlurContainer: styled(Text.Container)<{ isBlur: boolean }>`
+    filter: ${({ isBlur }) => (isBlur ? `blur(1.5rem);` : `blur(0);`)};
+  `,
 }
 
 export default St
