@@ -31,6 +31,12 @@ export const FONTS = {
     font: 'Pretendard',
     letterSpacing: 'normal',
   }),
+  h2: FONT({
+    weight: 800 /*ExtraBold*/,
+    size: 2,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
   body1: FONT({
     weight: 600 /*SemiBold*/,
     size: 1.8,

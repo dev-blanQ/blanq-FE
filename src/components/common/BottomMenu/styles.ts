@@ -2,7 +2,7 @@ import { FONTS } from '@/styles/font'
 import styled from '@emotion/styled'
 
 export const TabsWrapper = styled.div`
-  /*position: fixed;*/
+  position: fixed;
   bottom: 0;
   width: inherit;
 
