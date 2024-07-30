@@ -1,5 +1,7 @@
+import InfoBlock from '@/components/common/InfoBlock'
+
 const Make = () => {
-  return <div>make 이야기 만들기</div>
+  return <InfoBlock />
 }
 
 export default Make

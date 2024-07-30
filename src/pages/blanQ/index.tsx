@@ -1,10 +1,10 @@
-import { Background, DefaultBtn } from '@/components/common'
+import InfoBlock from '@/components/common/InfoBlock'
 
-const Home = () => {
-  return <DefaultBtn>HOME 홈</DefaultBtn>
+const BlanQ = () => {
+  return <InfoBlock />
 }
 
-export default Home
+export default BlanQ
 
 {
   /* <Background type="">
