@@ -16,13 +16,14 @@ export const ContentWrapper = styled.div`
 `
 
 export const TellMeBox = styled(Gradient)`
-  height: 15rem;
+  min-height: 15rem;
   color: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
+  padding: 2.5rem;
 `
 
 export const Title = styled.div`
@@ -46,10 +47,13 @@ export const QuizControl = styled.div`
   justify-content: space-between;
 `
 
-export const InviteBtn = styled.button`
+export const CopyCodeBtn = styled.button`
   width: 5rem;
   height: 5rem;
   border: 0.2rem solid var(--color-black);
+  &:disabled {
+    background-color: var(--color-gray-100);
+  }
 `
 
 export const MakeQuizBtn = styled.button`
@@ -64,4 +68,50 @@ export const Quiz = styled.div`
   border-radius: 1.5rem;
   ${FONTS.body6}
   padding:2.5rem;
+`
+
+export const InputContent = styled.div`
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 1.5rem;
+  width: 90%;
+
+  ${FONTS.body6}
+  padding:2.5rem;
+  word-break: break-all;
+`
+
+export const Input = styled.textarea`
+  min-height: 3rem;
+  width: 90%;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-bottom: solid 0.2rem var(--color-black);
+  overflow: hidden;
+  &:focus {
+    outline: none;
+  }
+`
+export const RedoBtn = styled.button`
+  height: 3rem;
+  width: 3rem;
+  border-radius: 10rem;
+  border: solid 0.15rem var(--color-black);
+`
+
+export const SubmitBtn = styled.button`
+  padding: 0.5rem 1.5rem;
+  border-radius: 10rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  margin-left: 1.5rem;
+  ${FONTS.body5}
+`
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 `
