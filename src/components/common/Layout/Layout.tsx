@@ -24,7 +24,7 @@ function Layout({ children }: LayoutProps) {
 
       <Container>
         {' '}
-        {!withOutTabbar.includes(pathname) && <Header />}
+        {<Header />}
         {children}
         {!withOutTabbar.includes(pathname) && <BottomMenu />}
       </Container>
@@ -36,6 +36,7 @@ export default Layout
 
 const Container = styled.div`
   width: 43rem;
+  padding: 0 1.5rem;
   scrollbar-width: none;
   min-height: 100dvh;
   margin: auto;

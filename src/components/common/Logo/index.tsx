@@ -1,4 +1,4 @@
-import { LOGO_TYPE_INFO } from '@/constants'
+import { LOGO_TYPE_INFO } from '@/constants/logo'
 import Image from 'next/image'
 import St from './style'
 import { LogoProps } from '@/types'

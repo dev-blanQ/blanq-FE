@@ -36,5 +36,5 @@ const AuthBtn = () => {
 export default AuthBtn
 const Button = styled.button`
   text-decoration: underline;
-  ${FONTS.body4};
+  ${FONTS.body1};
 `
