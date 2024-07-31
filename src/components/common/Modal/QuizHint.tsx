@@ -1,35 +1,42 @@
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useRef, Dispatch, SetStateAction, useState, useEffect } from 'react'
 import PortalModal from './PortalModal'
 import { useOutsideClick, useKeyEscape, useCopy } from '@/hooks'
 import St from './style'
 import { useRouter } from 'next/router'
+import Line from '../Sentence/line'
+import { Tcontent } from '@/types/tasks'
 
 interface ModalProp {
   isOpen: boolean
   handleClose: () => void
 
-  handleQuizCode: () => void
-  name: string
-  sentences: string[]
-  answer: string
+  setCount: Dispatch<SetStateAction<number>>
+  getHintForQuiz: () => Promise<void>
+  hint: Tcontent
 }
 
 const QuizHintModal = ({
   isOpen,
   handleClose,
-
-  name,
-  sentences,
-  answer,
+  setCount,
+  hint,
+  getHintForQuiz,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
-
-  const [isBlur, setIsBlur] = useState(true)
-
+  const [isBlurHint, setIsBlurHint] = useState(true)
   useOutsideClick(contentRef, handleClose)
   useKeyEscape('escape', handleClose)
+
+  useEffect(() => {
+    if (isBlurHint) {
+      getHintForQuiz()
+    }
+  }, [isBlurHint])
+  useEffect(() => {
+    console.log(hint)
+  }, [hint])
 
   if (!isOpen || !router.isReady) return null
   return (
@@ -56,16 +63,21 @@ const QuizHintModal = ({
               <St.Main>힌트를 알려드릴까요?</St.Main>
               <St.Sub>포인트 1개를 사용해서 힌트를 볼 수 있어요</St.Sub>
             </div>
-            <St.BlurContainer isBlur={isBlur}>
-              {sentences.map((word, idx) => (
-                <span key={idx}>{word != '@' ? word : answer}</span>
-              ))}
+            <St.BlurContainer isBlur={isBlurHint}>
+              <Line chunks={hint} />
             </St.BlurContainer>
 
             <St.SubmitBtn
-              onClick={() => (isBlur ? setIsBlur(false) : handleClose)}
+              onClick={
+                isBlurHint
+                  ? () => setIsBlurHint(false)
+                  : () => {
+                      handleClose()
+                      setCount(5)
+                    }
+              }
             >
-              {isBlur ? '힌트 보기' : '확인 완료'}
+              {isBlurHint ? '힌트 보기' : '확인 완료'}
             </St.SubmitBtn>
           </St.Text.Wrapper>
         </St.Content>

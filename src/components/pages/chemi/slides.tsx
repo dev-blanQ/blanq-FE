@@ -1,24 +1,22 @@
+import { WrongAnswerProps } from '@/types/tasks'
 import 'swiper/css'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import St from './styles'
 const Slides = ({
   swiperSetting,
-  items,
+  wrongAnswers,
 }: {
   swiperSetting: SwiperProps
-  items: { word: string; percent: number }[]
+  wrongAnswers: WrongAnswerProps[]
 }) => {
   return (
     <St.SliderWrapper>
       <Swiper {...swiperSetting}>
-        {items.map(
-          (
-            { word, percent }: { word: string; percent: number },
-            idx: number,
-          ) => (
+        {wrongAnswers.map(
+          ({ answer, similarity }: WrongAnswerProps, idx: number) => (
             <SwiperSlide key={idx}>
               <St.SimilarWord key={idx}>
-                {word}-{percent}
+                {answer}-{similarity}
               </St.SimilarWord>
             </SwiperSlide>
           ),

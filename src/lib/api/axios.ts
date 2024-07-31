@@ -1,5 +1,5 @@
-import parseCookies from './parseCookies'
-import axios from 'axios'
+import parseCookies from '../parseCookies'
+import axios, { AxiosRequestConfig } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 // 쿠키에 저장된 토큰을 인증 헤더에 자동으로 추가하여 요청을 보낼 수 있습니다.
@@ -29,7 +29,10 @@ function createAuthAxios(req: NextApiRequest) {
 // 쿠키에 저장된 토큰을 인증 헤더에 없이 서버에 요청 보내기
 function createDefatultAxios() {
   const instance = axios.create({
-    baseURL: '스프링 서버 URL',
+    baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
 
   return instance
@@ -44,4 +47,25 @@ function createNextHttp() {
   return instance
 }
 
-export { createAuthAxios, createDefatultAxios, createNextHttp }
+const defaultAxios = createDefatultAxios()
+
+const Apis = {
+  default: {
+    async GET<T>(path: string, option?: { params: string }) {
+      const data = await defaultAxios.get<T>(path, option)
+      return data.data
+    },
+    async POST<T>(path: string, body: T, option?: AxiosRequestConfig) {
+      const data = await defaultAxios.post(path, body, option)
+      return data.data
+    },
+    async PATCH<T>(path: string, body: T) {
+      await defaultAxios.patch(path, body)
+    },
+    async DELETE<T>(path: string, option?: { params: string }) {
+      await defaultAxios.delete<T>(path, option)
+    },
+  },
+}
+
+export { createAuthAxios, createDefatultAxios, createNextHttp, Apis }

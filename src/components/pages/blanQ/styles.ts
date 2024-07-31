@@ -61,8 +61,8 @@ const St = {
   Quiz: styled.div`
     background-color: var(--color-gray-300);
     border-radius: 1.5rem;
-    ${FONTS.body6}
-    padding:2.5rem;
+
+    padding: 2.5rem;
   `,
 
   InputContent: styled.div`

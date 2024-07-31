@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useCallback } from 'react'
 import { AxiosResponse } from 'axios'
-import { createDefatultAxios, createNextHttp } from '@/lib/axios'
+import { createDefatultAxios, createNextHttp } from '@/lib/api/axios'
 
 const Redirection = () => {
   const router = useRouter()

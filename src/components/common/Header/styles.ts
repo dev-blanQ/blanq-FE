@@ -7,6 +7,9 @@ export const StyledRoot = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 3rem 0;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
 `
 
 export const Title = styled.span`

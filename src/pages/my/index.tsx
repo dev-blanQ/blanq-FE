@@ -1,11 +1,11 @@
 import Profile from '@/components/common/Profile'
 import { FONTS } from '@/styles/font'
 import styled from '@emotion/styled'
-
+import { getRandomNumber } from '@/lib/randNum'
 const My = () => {
   return (
     <StyledRoot>
-      <Profile src="/assets/icon/profile.png" name="김광현" />
+      <Profile src={`/assets/profile/7.jpeg`} name="김광현" />
       <MenuContainer>
         <p>개인정보 처리 방침</p>
         <p>문의하기</p>

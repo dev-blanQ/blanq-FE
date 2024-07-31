@@ -1,16 +1,21 @@
 import Title from '@/components/common/Layout/Title'
+import Line from '@/components/common/Sentence/line'
+import useTasks from './hooks/useTasks'
 import St from './styles'
 
 const Quest = () => {
+  const { quests } = useTasks()
+  console.log(quests)
   return (
     <St.Container>
       {' '}
       <Title content="blanQ-uest : 포인트 모으기" />
       <St.ContentWrapper>
-        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
-        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
-        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
-        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
+        {quests.map(({ content }, idx) => (
+          <St.Quiz key={idx}>
+            <Line chunks={content} />
+          </St.Quiz>
+        ))}
       </St.ContentWrapper>
     </St.Container>
   )

@@ -6,6 +6,8 @@ import CopyCodeModal from '@/components/common/Modal/CopyCode'
 import { useCopy } from '@/hooks'
 import { useBlanQActions, useBlanQStore } from '@/store/blanQ'
 import Title from '@/components/common/Layout/Title'
+import use24hourTimer from './hooks/use24hourTimer'
+import Timer from './timer'
 
 const QuizToday = () => {
   const router = useRouter()
@@ -14,20 +16,21 @@ const QuizToday = () => {
   const { openModal, closeModal } = useModalActions()
   const { code, quiz } = useBlanQStore()
   const { setQuiz, setCode } = useBlanQActions()
+  const { hour, minute, second } = use24hourTimer()
 
   const handleCopyCode = () => {
     if (code) {
       console.log('초대코드 복사')
-      onCopy(code)
+      onCopy(`http://localhost:3000/chemi/quiz?id=${code}`)
     }
   }
   return (
     <St.Container>
-      {isOpen && (
+      {isOpen && code && (
         <CopyCodeModal
           isOpen={isOpen}
           handleClose={closeModal}
-          quizCode={code}
+          code={`http://localhost:3000/chemi/quiz?id=${code}`}
           handleQuizCode={handleCopyCode}
         />
       )}
@@ -46,8 +49,19 @@ const QuizToday = () => {
               height={18}
             />
           </St.CopyCodeBtn>
-          <St.MakeQuizBtn onClick={() => router.push('/blanQ/quiz')}>
-            이야기 만들기
+          <St.MakeQuizBtn
+            onClick={() => router.push('/blanQ/quiz')}
+            disabled={code.length > 0}
+          >
+            {code ? (
+              <>
+                {' '}
+                <span>다음 이야기까지 </span>
+                <Timer hour={hour} minute={minute} second={second} />
+              </>
+            ) : (
+              '이야기 만들기'
+            )}
           </St.MakeQuizBtn>
         </St.QuizControl>
       </St.ContentWrapper>
