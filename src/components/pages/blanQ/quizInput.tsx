@@ -3,6 +3,7 @@ import St from './styles'
 
 import { useModalActions, useModalStore } from '@/store/modal'
 import MakeQuizModal from '@/components/common/Modal/MakeQuiz'
+import CopyCodeModal from '@/components/common/Modal/CopyCode'
 import { useRouter } from 'next/router'
 import { useBlanQActions, useBlanQStore } from '@/store/blanQ'
 import { makeQuiz, saveQuiz } from '@/lib/api/tasks'
@@ -37,22 +38,32 @@ const QuizInput = () => {
       console.log(quizChunk)
       // 저장 API
       const { taskId, content } = await saveQuiz({ content: quizChunk, answer })
-
+      setCode(taskId)
       console.log('저장 모듈', taskId, content)
-      closeModal()
-      router.push('/blanQ')
     } else {
       alert('퀴즈를 입력하세ㅛ')
     }
   }
+  const handleCopyCode = () => {
+    closeModal() // 모달 닫아야 함 안그러면 다른 페이지에 담당하는 모달 열림
+    router.push('/blanQ')
+  }
 
   return (
     <>
-      {isOpen && (
+      {isOpen && !code && (
         <MakeQuizModal
           isOpen={isOpen}
           handleClose={closeModal}
           handleSubmitQuiz={handleSubmitQuiz}
+        />
+      )}
+      {isOpen && code && (
+        <CopyCodeModal
+          isOpen={isOpen}
+          handleClose={handleCopyCode}
+          code={code}
+          handleQuizCode={handleCopyCode}
         />
       )}
       <St.Container>
