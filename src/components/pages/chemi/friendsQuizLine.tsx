@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const FriendsQuizLine = () => {
-  return <StyledRoot>I'm speech bubble</StyledRoot>
+  return <StyledRoot>Im speech bubble</StyledRoot>
 }
 
 export default FriendsQuizLine
