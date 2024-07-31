@@ -14,10 +14,7 @@ const AnswerQuiz = () => {
 
   const isOpen = useModalStore()
   const { openModal, closeModal } = useModalActions()
-  const { count, setCount, handleAnswerSubmit } = useAnswerControl(
-    isOpen,
-    openModal,
-  )
+  const { count, setCount, handleAnswerSubmit } = useAnswerControl()
   const { swiperSetting, currentSlide } = useSwiper()
 
   useEffect(() => {

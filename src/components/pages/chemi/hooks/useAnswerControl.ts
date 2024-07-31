@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useAnswerControl = (isOpen: boolean, openModal: () => void) => {
+const useAnswerControl = () => {
   const [count, setCount] = useState(5)
 
   const handleAnswerSubmit = () => {
