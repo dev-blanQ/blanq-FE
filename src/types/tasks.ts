@@ -8,6 +8,11 @@ export type QuestProps = {
   content: Tcontent
 }
 
+export type WrongAnswerProps = {
+  answer: string
+  similarity: string
+}
+
 export type Tcontent = string[]
 export type TtaskId = string
 export type answer = string

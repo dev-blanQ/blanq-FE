@@ -1,7 +1,25 @@
-import { Tcontent, TtaskId, answer } from '@/types/tasks'
+import { Tcontent, TtaskId, answer, WrongAnswerProps } from '@/types/tasks'
 import { TFriend } from '@/types/ranks'
 import { Apis } from './axios'
 import PATH from './constant'
+
+/**
+ *
+ * @param taskId
+ * @returns
+ */
+
+// 퀴즈 조회
+function getQuizById(taskId: TtaskId): Promise<{
+  taskId: TtaskId
+  member: TFriend
+  content: Tcontent
+
+  isFinished: boolean
+  wrongAnswers?: WrongAnswerProps[]
+}> {
+  return Apis.default.GET(`${PATH.TASKS}/${taskId}`)
+}
 
 // 퀴즈 조회
 function getQuizzess(): Promise<
@@ -42,4 +60,4 @@ function getQuests(): Promise<
   return Apis.default.GET(`${PATH.TASKS_QUESTS}`)
 }
 
-export { getQuizzess, getQuests, makeQuiz, saveQuiz, getMyQuiz }
+export { getQuizzess, getQuests, makeQuiz, saveQuiz, getMyQuiz, getQuizById }

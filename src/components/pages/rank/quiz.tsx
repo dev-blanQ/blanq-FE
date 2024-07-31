@@ -1,6 +1,12 @@
 import FriendQuiz from '@/components/common/FriendQuiz'
 
+import { useRouter } from 'next/router'
+import useQuizInfo from './useQuizInfo'
+
 const Quiz = () => {
+  const router = useRouter()
+  const { quiz } = useQuizInfo(router.query.id)
+  console.log(quiz)
   return (
     <FriendQuiz
       name="장ㅇ아연"

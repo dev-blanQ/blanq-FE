@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import St from './styles'
 import { TFriend } from '@/types/ranks'
-import { Background } from '@/components/common'
 import styled from '@emotion/styled'
 
 const color: { [key: number]: { background: string; text: string } } = {
