@@ -1,4 +1,9 @@
-import { TmemberNickname, TTopRankCount, TCloseFriends } from '@/types/ranks'
+import {
+  TmemberNickname,
+  TTopRankCount,
+  TCloseFriends,
+  TFriend,
+} from '@/types/ranks'
 import { TtaskId } from '@/types/tasks'
 import { Apis } from './axios'
 import PATH from './constant'
@@ -12,14 +17,12 @@ function getMyFriendsRank(): Promise<{
   return Apis.default.GET(`${PATH.RANKS_ME_HISTORY}`)
 }
 // 퀴즈별 랭킹 조회
-function getMyQuizFriensdRank(taskId: TtaskId): Promise<{
-  member: {
-    memberNickname: TmemberNickname
-    topRankCount: TTopRankCount
-    closeFriends: TCloseFriends
-  }
-  numOfTrial: number
-}> {
+function getRankByFrienQuiz(taskId: TtaskId): Promise<
+  {
+    member: TFriend
+    numOfTrial: number
+  }[]
+> {
   return Apis.default.GET(`${PATH.RANKS_TASKS_TASKID}/${taskId}`)
 }
-export { getMyFriendsRank, getMyQuizFriensdRank }
+export { getMyFriendsRank, getRankByFrienQuiz }

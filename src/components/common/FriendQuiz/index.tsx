@@ -37,7 +37,7 @@ const FriendQuiz: React.FC<FriendQuizProps> = ({
           borderRadius: '10rem',
         }}
       />
-      <St.ContentContainer onClick={content && handleBubbleClick}>
+      <St.ContentContainer onClick={handleBubbleClick}>
         <St.Name>{name}</St.Name>
         <Bubble isExist={Boolean(content)} isFinished={isFinished}>
           <Line chunks={content} />

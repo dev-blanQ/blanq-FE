@@ -10,6 +10,7 @@ const FriendsQuizLine: React.FC = () => {
   return (
     <StyledRoot>
       <Title content="blanQ-uiz : 친구들의 이야기" />
+
       {myFriendsQuizzess.map(({ taskId, content, member, isFinished }, idx) => (
         <FriendQuiz
           key={idx}
