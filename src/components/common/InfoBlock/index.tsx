@@ -1,22 +1,13 @@
 import Text from './text'
-import StateIcon from './stateIcon'
-import styled from '@emotion/styled'
+import Icon from './icon'
+import St from './styles'
 const InfoBlock = () => {
   return (
-    <StyledRoot>
+    <St.StyledRoot>
       <Text />
-      <StateIcon />
-    </StyledRoot>
+      <Icon />
+    </St.StyledRoot>
   )
 }
 
 export default InfoBlock
-
-const StyledRoot = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 2.4rem;
-  justify-content: space-between;
-  background-color: var(--color-gray-400);
-  border-radius: 1.5rem;
-`

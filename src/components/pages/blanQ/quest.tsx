@@ -1,17 +1,18 @@
-import { Container, Title, ContentWrapper, Quiz, QuizControl } from './styles'
+import Title from '@/components/common/Layout/Title'
+import St from './styles'
 
 const Quest = () => {
   return (
-    <Container>
+    <St.Container>
       {' '}
-      <Title>blanQ-uest : 포인트 모으기</Title>
-      <ContentWrapper>
-        <Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</Quiz>
-        <Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</Quiz>
-        <Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</Quiz>
-        <Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</Quiz>
-      </ContentWrapper>
-    </Container>
+      <Title content="blanQ-uest : 포인트 모으기" />
+      <St.ContentWrapper>
+        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
+        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
+        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
+        <St.Quiz>블랭큐는 오늘 먹은 블랭큐는 오늘 먹은</St.Quiz>
+      </St.ContentWrapper>
+    </St.Container>
   )
 }
 
