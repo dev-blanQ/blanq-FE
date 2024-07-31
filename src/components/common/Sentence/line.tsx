@@ -6,11 +6,12 @@ import St from './styles'
 interface LineProps {
   chunks: string[]
   blank?: string
+  isCenter?: boolean
 }
 
-const Line = ({ chunks, blank }: LineProps) => {
+const Line = ({ chunks, blank, isCenter }: LineProps) => {
   return (
-    <St.Line.Wrapper>
+    <St.Line.Wrapper isCenter={isCenter ?? false}>
       {chunks ? (
         chunks.map((chunk, idx) =>
           chunk != '@' ? (

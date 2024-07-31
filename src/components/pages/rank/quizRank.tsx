@@ -3,7 +3,7 @@ import Score from '@/components/pages/rank/score'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
-import useQuizRank from './useQuizRank'
+import useQuizRank from './hooks/useQuizRank'
 
 const QuizRank = () => {
   const router = useRouter()

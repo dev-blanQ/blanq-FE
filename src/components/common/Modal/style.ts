@@ -81,7 +81,7 @@ const St = {
   Black,
   Text,
   BlurContainer: styled(Text.Container)<{ isBlur: boolean }>`
-    filter: ${({ isBlur }) => (isBlur ? `blur(1.5rem);` : `blur(0);`)};
+    filter: ${({ isBlur }) => (isBlur ? `blur(0.3rem);` : `blur(0);`)};
   `,
 }
 

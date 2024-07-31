@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useRef, Dispatch, SetStateAction, useState } from 'react'
 import PortalModal from './PortalModal'
 import { useOutsideClick, useKeyEscape, useCopy } from '@/hooks'
 import St from './style'
@@ -9,25 +9,20 @@ interface ModalProp {
   isOpen: boolean
   handleClose: () => void
 
-  handleQuizCode: () => void
-  name: string
+  setCount: Dispatch<SetStateAction<number>>
+
   sentences: string[]
-  answer: string
 }
 
 const QuizHintModal = ({
   isOpen,
   handleClose,
-
-  name,
+  setCount,
   sentences,
-  answer,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
-
-  const [isBlur, setIsBlur] = useState(true)
-
+  const [isBlurHint, setIsBlurHint] = useState(true)
   useOutsideClick(contentRef, handleClose)
   useKeyEscape('escape', handleClose)
 
@@ -56,16 +51,23 @@ const QuizHintModal = ({
               <St.Main>힌트를 알려드릴까요?</St.Main>
               <St.Sub>포인트 1개를 사용해서 힌트를 볼 수 있어요</St.Sub>
             </div>
-            <St.BlurContainer isBlur={isBlur}>
+            <St.BlurContainer isBlur={isBlurHint}>
               {sentences.map((word, idx) => (
-                <span key={idx}>{word != '@' ? word : answer}</span>
+                <span key={idx}>{word}</span>
               ))}
             </St.BlurContainer>
 
             <St.SubmitBtn
-              onClick={() => (isBlur ? setIsBlur(false) : handleClose)}
+              onClick={
+                isBlurHint
+                  ? () => setIsBlurHint(false)
+                  : () => {
+                      handleClose()
+                      setCount(5)
+                    }
+              }
             >
-              {isBlur ? '힌트 보기' : '확인 완료'}
+              {isBlurHint ? '힌트 보기' : '확인 완료'}
             </St.SubmitBtn>
           </St.Text.Wrapper>
         </St.Content>

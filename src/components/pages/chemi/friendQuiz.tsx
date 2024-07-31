@@ -1,11 +1,18 @@
 import Profile from '@/components/common/Profile'
+import Line from '@/components/common/Sentence/line'
 import St from '@/components/pages/chemi/styles'
+import { useBlanQStore } from '@/store/blanQ'
 import { useInputStore } from '@/store/chemi/input'
-import Image from 'next/image'
-import { useState } from 'react'
-const FriendsQuiz = () => {
-  const [isRevealed, setIsRevealed] = useState(false)
+import { Dispatch, SetStateAction } from 'react'
 
+interface FriendQuizProps {
+  setIsRevealed: Dispatch<SetStateAction<boolean>>
+
+  isRevealed: boolean
+}
+
+const FriendsQuiz = ({ setIsRevealed, isRevealed }: FriendQuizProps) => {
+  const { quizChunk } = useBlanQStore()
   const input = useInputStore()
   return (
     <St.QuizContainer>
@@ -19,7 +26,7 @@ const FriendsQuiz = () => {
         onClick={() => setIsRevealed(true)}
         isRevealed={isRevealed}
       >
-        {isRevealed ? `ㅁㄴ우ㅏ ${input}  ㅣ무니ㅏㅇ` : '도전하기'}
+        {isRevealed ? <Line chunks={quizChunk} blank={input} /> : '도전하기'}
       </St.QuizContent>
     </St.QuizContainer>
   )

@@ -28,10 +28,10 @@ const Cubic = {
   `,
 }
 const Line = {
-  Wrapper: styled.div`
+  Wrapper: styled.div<{ isCenter: boolean }>`
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: ${({ isCenter }) => (isCenter ? `center` : `flex-start`)};
     align-items: center;
     ${FONTS.body6}
   `,

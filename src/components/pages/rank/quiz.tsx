@@ -1,7 +1,7 @@
 import FriendQuiz from '@/components/common/FriendQuiz'
 
 import { useRouter } from 'next/router'
-import useQuizInfo from './useQuizInfo'
+import useQuizInfo from './hooks/useQuizInfo'
 
 const Quiz = () => {
   const router = useRouter()
