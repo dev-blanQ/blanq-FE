@@ -11,7 +11,7 @@ const Line = ({ chunks, blank }: LineProps) => {
   return (
     <St.Line.Wrapper>
       {chunks.map((chunk, idx) =>
-        chunk != '@' ? <span>{chunk}</span> : <Cubic />,
+        chunk != '@' ? <span key={idx}>{chunk}</span> : <Cubic key={idx} />,
       )}
     </St.Line.Wrapper>
   )
