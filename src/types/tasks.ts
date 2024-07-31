@@ -11,3 +11,4 @@ export type QuestProps = {
 export type Tcontent = string[]
 export type TtaskId = string
 export type answer = string
+export type isFinishedd = boolean

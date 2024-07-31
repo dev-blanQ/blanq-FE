@@ -1,9 +1,17 @@
 import { Tcontent, TtaskId, answer } from '@/types/tasks'
+import { TFriend } from '@/types/ranks'
 import { Apis } from './axios'
 import PATH from './constant'
 
 // 퀴즈 조회
-function getQuizzess() {
+function getQuizzess(): Promise<
+  {
+    taskId: TtaskId
+    content: Tcontent
+    member: TFriend
+    isFinished: boolean
+  }[]
+> {
   return Apis.default.GET(`${PATH.TASKS_QUIZZES}`)
 }
 // 오늘의 문제 저장

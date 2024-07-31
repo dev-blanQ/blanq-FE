@@ -11,14 +11,18 @@ interface LineProps {
 const Line = ({ chunks, blank }: LineProps) => {
   return (
     <St.Line.Wrapper>
-      {chunks.map((chunk, idx) =>
-        chunk != '@' ? (
-          <span key={idx}>{chunk}</span>
-        ) : blank ? (
-          <Cubic key={idx} blank={blank} />
-        ) : (
-          <Cubic key={idx} />
-        ),
+      {chunks ? (
+        chunks.map((chunk, idx) =>
+          chunk != '@' ? (
+            <span key={idx}>{chunk}</span>
+          ) : blank ? (
+            <Cubic key={idx} blank={blank} />
+          ) : (
+            <Cubic key={idx} />
+          ),
+        )
+      ) : (
+        <span>...</span>
       )}
     </St.Line.Wrapper>
   )

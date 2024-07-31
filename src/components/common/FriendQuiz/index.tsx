@@ -1,19 +1,31 @@
 import Bubble from './bubble'
-import Speech from './speechText'
+import Line from '../Sentence/line'
 import St from './styles'
 import Image from 'next/image'
+import { TFriend } from '@/types/ranks'
+import { Tcontent, TtaskId } from '@/types/tasks'
+import { useRouter } from 'next/router'
 
 interface FriendQuizProps {
-  image: string
-  name: string
-  speak: string
+  image: TFriend['profileUrl']
+  name: TFriend['nickname']
+  content: Tcontent
+  taskId: TtaskId
+  isFinished: boolean
 }
 
 const FriendQuiz: React.FC<FriendQuizProps> = ({
   image,
   name,
-  speak,
+  content,
+  taskId,
+  isFinished,
 }: FriendQuizProps) => {
+  console.log(image, name, content, taskId)
+  const router = useRouter()
+  const handleBubbleClick = () => {
+    router.push(`/rank?id=${taskId}`)
+  }
   return (
     <St.StyledRoot>
       <Image
@@ -25,10 +37,10 @@ const FriendQuiz: React.FC<FriendQuizProps> = ({
           borderRadius: '10rem',
         }}
       />
-      <St.ContentContainer>
+      <St.ContentContainer onClick={content && handleBubbleClick}>
         <St.Name>{name}</St.Name>
-        <Bubble>
-          <Speech speak={speak} />
+        <Bubble isExist={Boolean(content)} isFinished={isFinished}>
+          <Line chunks={content} />
         </Bubble>
       </St.ContentContainer>
     </St.StyledRoot>
