@@ -4,10 +4,10 @@ interface Props {
   children: React.ReactNode
 }
 
-function SpeechBubble({ children }: Props) {
+function Bubble({ children }: Props) {
   return (
     <>
-      <St.StyledRoot>
+      <St.BubbleRoot>
         {children}
         <Image
           src={`/assets/icon/solved.png`}
@@ -16,9 +16,9 @@ function SpeechBubble({ children }: Props) {
           height={18}
           style={{ position: 'absolute', top: '-0.3rem', right: '-0.3rem' }}
         />
-      </St.StyledRoot>
+      </St.BubbleRoot>
     </>
   )
 }
 
-export default SpeechBubble
+export default Bubble

@@ -6,4 +6,6 @@ export const ROUTE_HEADER_MAPPING: { [key: string]: string | number } = {
 
   '/chemi': 'chemi',
   '/chemi/quiz': 'blanQ-uiz',
+
+  '/rank': 'rank',
 }

@@ -1,30 +1,15 @@
-import { SpeechBubble } from '@/components/common'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import { FONTS } from '@/styles/font'
-const Speech = ({ speak }: { speak: string }) => {
-  return <SpeechText>{speak}</SpeechText>
-}
+import FriendQuiz from '@/components/common/FriendQuiz'
 
 const FriendsQuizLine: React.FC = () => {
   return (
-    <StyledRoot>
-      <Image
-        src="/assets/icon/profile.png"
-        alt="profile image"
-        width={50}
-        height={50}
-        style={{
-          borderRadius: '10rem',
-        }}
-      />
-      <ContentContainer>
-        <Name>장아연</Name>
-        <SpeechBubble>
-          <Speech speak="dsfa" />
-        </SpeechBubble>
-      </ContentContainer>
-    </StyledRoot>
+    <FriendQuiz
+      name="장ㅇ아연"
+      speak="asdnknf"
+      image="/assets/icon/profile.png"
+    />
   )
 }
 
