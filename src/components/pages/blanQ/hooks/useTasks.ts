@@ -23,6 +23,7 @@ const useTasks = () => {
   useEffect(() => {
     getQuestsApi()
   }, [getQuestsApi])
+
   useEffect(() => {
     getMyQuizApi()
   }, [getMyQuizApi])

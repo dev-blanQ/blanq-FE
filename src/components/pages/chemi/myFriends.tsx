@@ -2,13 +2,14 @@ import { FONTS } from '@/styles/font'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import useMyFriendsRank from './hooks/useMyFriendsRank'
+import { getRandomNumber } from '@/lib/randNum'
 const MyFriends = () => {
   const { memberNickname, topRankCount, closeFriends } = useMyFriendsRank()
   return (
     <>
       <Wrapper>
         <Image
-          src="/assets/icon/profile.png"
+          src={`/assets/profile/${getRandomNumber()}.jpeg`}
           width={70}
           height={70}
           alt="profile image"
@@ -19,21 +20,23 @@ const MyFriends = () => {
         />
         <InfoContainer>
           <BestFriendContainer>
-            <Image
-              src="/assets/icon/star.png"
-              width={16}
-              height={16}
-              alt="star image"
-              style={{ marginRight: '0.5rem' }}
-            />
-            <span>{memberNickname}</span>
+            <div>
+              <Image
+                src="/assets/icon/star.png"
+                width={16}
+                height={16}
+                alt="star image"
+                style={{ marginRight: '0.5rem' }}
+              />
+              <span>{memberNickname}</span>
+            </div>
 
             <TopFriendWrapper>
               <BestFriendText>#친한 친구</BestFriendText>
               {closeFriends.map(({ profileUrl, nickname }, idx) => (
                 <>
                   <Image
-                    src="/assets/icon/profile.png"
+                    src={`/assets/profile/${getRandomNumber()}.jpeg`}
                     width={40}
                     height={40}
                     alt={nickname}

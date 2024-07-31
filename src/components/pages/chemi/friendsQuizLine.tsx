@@ -3,7 +3,7 @@ import Title from '@/components/common/Layout/Title'
 import { FONTS } from '@/styles/font'
 import FriendQuiz from '@/components/common/FriendQuiz'
 import useFriendsQuizzess from './hooks/useFriendsQuizzes'
-
+import { getRandomNumber } from '@/lib/randNum'
 const FriendsQuizLine: React.FC = () => {
   const { myFriendsQuizzess } = useFriendsQuizzess()
   console.log(myFriendsQuizzess)
@@ -18,7 +18,7 @@ const FriendsQuizLine: React.FC = () => {
           content={content}
           taskId={taskId}
           isFinished={isFinished}
-          image="/assets/icon/profile.png" /**{member.profileUrl} */
+          image={`/assets/profile/${getRandomNumber()}.jpeg`} /**{member.profileUrl} */
         />
       ))}
     </StyledRoot>

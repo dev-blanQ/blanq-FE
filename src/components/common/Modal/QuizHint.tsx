@@ -1,30 +1,42 @@
 import Image from 'next/image'
-import { useRef, Dispatch, SetStateAction, useState } from 'react'
+import { useRef, Dispatch, SetStateAction, useState, useEffect } from 'react'
 import PortalModal from './PortalModal'
 import { useOutsideClick, useKeyEscape, useCopy } from '@/hooks'
 import St from './style'
 import { useRouter } from 'next/router'
+import Line from '../Sentence/line'
+import { Tcontent } from '@/types/tasks'
 
 interface ModalProp {
   isOpen: boolean
   handleClose: () => void
 
   setCount: Dispatch<SetStateAction<number>>
-
-  sentences: string[]
+  getHintForQuiz: () => Promise<void>
+  hint: Tcontent
 }
 
 const QuizHintModal = ({
   isOpen,
   handleClose,
   setCount,
-  sentences,
+  hint,
+  getHintForQuiz,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
   const [isBlurHint, setIsBlurHint] = useState(true)
   useOutsideClick(contentRef, handleClose)
   useKeyEscape('escape', handleClose)
+
+  useEffect(() => {
+    if (isBlurHint) {
+      getHintForQuiz()
+    }
+  }, [isBlurHint])
+  useEffect(() => {
+    console.log(hint)
+  }, [hint])
 
   if (!isOpen || !router.isReady) return null
   return (
@@ -52,9 +64,7 @@ const QuizHintModal = ({
               <St.Sub>포인트 1개를 사용해서 힌트를 볼 수 있어요</St.Sub>
             </div>
             <St.BlurContainer isBlur={isBlurHint}>
-              {sentences.map((word, idx) => (
-                <span key={idx}>{word}</span>
-              ))}
+              <Line chunks={hint} />
             </St.BlurContainer>
 
             <St.SubmitBtn

@@ -16,6 +16,7 @@ const useFriendsQuizzess = () => {
   const getMyFriendsQuizzessApi = useCallback(async () => {
     try {
       const response = await getQuizzess()
+
       setMyFriendsQuizzess(response)
     } catch (e) {}
   }, [])

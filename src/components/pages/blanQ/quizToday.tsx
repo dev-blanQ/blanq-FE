@@ -21,7 +21,7 @@ const QuizToday = () => {
   const handleCopyCode = () => {
     if (code) {
       console.log('초대코드 복사')
-      onCopy(code)
+      onCopy(`http://localhost:3000/chemi/quiz?id=${code}`)
     }
   }
   return (
@@ -30,7 +30,7 @@ const QuizToday = () => {
         <CopyCodeModal
           isOpen={isOpen}
           handleClose={closeModal}
-          code={code}
+          code={`http://localhost:3000/chemi/quiz?id=${code}`}
           handleQuizCode={handleCopyCode}
         />
       )}

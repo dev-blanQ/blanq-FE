@@ -1,5 +1,5 @@
 import FriendQuiz from '@/components/common/FriendQuiz'
-
+import { getRandomNumber } from '@/lib/randNum'
 import { useRouter } from 'next/router'
 import useQuizInfo from './hooks/useQuizInfo'
 
@@ -9,11 +9,11 @@ const Quiz = () => {
   console.log(quiz)
   return (
     <FriendQuiz
-      name="장ㅇ아연"
+      name="장아연"
       taskId="dsnk"
-      isFinished={true}
-      content={['asdnknf asdnknf', '@', 'asdnknf']}
-      image="/assets/icon/profile.png"
+      isFinished={false}
+      content={['이제', '@', '도착, 재밌다!']}
+      image={`/assets/profile/${getRandomNumber()}.jpeg`}
     />
   )
 }

@@ -22,9 +22,8 @@ const Text = {
     justify-content: center;
     div {
       text-align: center;
-      margin: 1.2rem auto;
     }
-    gap: 0.5rem;
+    gap: 3rem;
   `,
   Container: styled.div`
     display: flex;
@@ -73,9 +72,11 @@ const St = {
   `,
   Main: styled.div`
     ${FONTS.body3}
+    margin:1.5rem 0;
   `,
   Sub: styled.div`
     ${FONTS.body6}
+    margin:1.5rem 0;
   `,
 
   Black,

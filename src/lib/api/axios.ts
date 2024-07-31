@@ -59,6 +59,12 @@ const Apis = {
       const data = await defaultAxios.post(path, body, option)
       return data.data
     },
+    async PATCH<T>(path: string, body: T) {
+      await defaultAxios.patch(path, body)
+    },
+    async DELETE<T>(path: string, option?: { params: string }) {
+      await defaultAxios.delete<T>(path, option)
+    },
   },
 }
 

@@ -1,5 +1,3 @@
-import { useBlanQStore } from '@/store/blanQ'
-import { useEffect } from 'react'
 import Cubic from './cubic'
 import St from './styles'
 

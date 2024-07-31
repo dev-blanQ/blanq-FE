@@ -24,7 +24,7 @@ const FriendQuiz: React.FC<FriendQuizProps> = ({
   console.log(image, name, content, taskId)
   const router = useRouter()
   const handleBubbleClick = () => {
-    router.push(`/rank?id=${taskId}`)
+    router.push(isFinished ? `/rank?id=${taskId}` : `/chemi/quiz?id=${taskId}`)
   }
   return (
     <St.StyledRoot>

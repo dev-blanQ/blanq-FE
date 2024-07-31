@@ -14,7 +14,7 @@ function getQuizById(taskId: TtaskId): Promise<{
   taskId: TtaskId
   member: TFriend
   content: Tcontent
-
+  answer: answer
   isFinished: boolean
   wrongAnswers?: WrongAnswerProps[]
 }> {
@@ -31,6 +31,22 @@ function getQuizzess(): Promise<
   }[]
 > {
   return Apis.default.GET(`${PATH.TASKS_QUIZZES}`)
+}
+
+function postAnwerSubmit(
+  taskId: TtaskId,
+  answer: answer,
+): Promise<{
+  content: Tcontent
+  answer: answer
+}> {
+  return Apis.default.POST(`${PATH.TASKS}/${taskId}/${PATH.ANSWER}`, { answer })
+}
+
+function getHint(taskId: TtaskId): Promise<{
+  content: Tcontent
+}> {
+  return Apis.default.GET(`${PATH.TASKS}/${taskId}/${PATH.HINT}`)
 }
 // 오늘의 문제 저장
 function saveQuiz(body: { content: Tcontent; answer: answer }) {
@@ -60,4 +76,13 @@ function getQuests(): Promise<
   return Apis.default.GET(`${PATH.TASKS_QUESTS}`)
 }
 
-export { getQuizzess, getQuests, makeQuiz, saveQuiz, getMyQuiz, getQuizById }
+export {
+  getQuizzess,
+  getQuests,
+  makeQuiz,
+  saveQuiz,
+  getMyQuiz,
+  getQuizById,
+  getHint,
+  postAnwerSubmit,
+}

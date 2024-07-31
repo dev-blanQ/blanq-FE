@@ -8,5 +8,8 @@ const PATH = {
   TASKS_QUIZZES_ME: '/tasks/quizzes/me',
   RANKS_ME_HISTORY: '/ranks/me/history',
   RANKS_TASKS_TASKID: '/ranks/tasks',
+  POINTS_SUBTRACT: '/points/subtract',
+  HINT: 'hint',
+  ANSWER: 'answer',
 }
 export default PATH

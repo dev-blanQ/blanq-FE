@@ -2,6 +2,7 @@ import Image from 'next/image'
 import St from './styles'
 import { TFriend } from '@/types/ranks'
 import styled from '@emotion/styled'
+import { getRandomNumber } from '@/lib/randNum'
 
 const color: { [key: number]: { background: string; text: string } } = {
   1: {
@@ -35,7 +36,7 @@ const Score = ({
           <div>{order}</div>
           <St.UserInfoContainer>
             <Image
-              src="/assets/icon/profile.png"
+              src={`/assets/profile/${getRandomNumber()}.jpeg`}
               alt="profile image"
               width={50}
               height={50}

@@ -4,14 +4,16 @@ import PortalModal from './PortalModal'
 import { useOutsideClick, useKeyEscape, useCopy } from '@/hooks'
 import St from './style'
 import { useRouter } from 'next/router'
+import { useBlanQStore } from '@/store/blanQ'
+import Line from '../Sentence/line'
+import { Tcontent } from '@/types/tasks'
 
 interface ModalProp {
   isOpen: boolean
   handleClose: () => void
 
-  handleQuizCode: () => void
   name: string
-  sentences: string[]
+  chunks: Tcontent
   answer: string
 }
 
@@ -20,8 +22,7 @@ const CorrectAnswerModal = ({
   handleClose,
 
   name,
-  sentences,
-  answer,
+  chunks,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
@@ -30,6 +31,7 @@ const CorrectAnswerModal = ({
     handleClose()
     router.replace('/chemi')
   }
+  const { quizChunk, answer } = useBlanQStore()
 
   useOutsideClick(contentRef, handleModalClose)
   useKeyEscape('escape', handleModalClose)
@@ -60,9 +62,7 @@ const CorrectAnswerModal = ({
               <St.Sub>빈칸을 채워 {name} 님과 가까워졌어요!</St.Sub>
             </div>
             <St.Text.Container>
-              {sentences.map((word, idx) => (
-                <span key={idx}>{word != '@' ? word : answer}</span>
-              ))}
+              <Line isCenter={true} chunks={quizChunk} blank={answer} />
             </St.Text.Container>
 
             <St.SubmitBtn onClick={handleModalClose}>확인 완료</St.SubmitBtn>

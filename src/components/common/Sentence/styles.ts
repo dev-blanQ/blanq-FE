@@ -25,6 +25,8 @@ const Cubic = {
   `,
   Text: styled.div`
     ${FONTS.body2}
+    padding: 0 0.5rem;
+    margin: 0;
   `,
 }
 const Line = {

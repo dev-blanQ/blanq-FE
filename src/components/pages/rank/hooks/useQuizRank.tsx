@@ -17,6 +17,7 @@ const useQuizRank = (taskId: TtaskId | TtaskId[] | undefined) => {
         if (taskId) {
           const response = await getRankByFrienQuiz(taskId)
           console.log(response)
+
           setQuizRank(response)
         } else {
           throw new Error('라우터 값으로 에러 발생함')

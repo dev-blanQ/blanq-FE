@@ -9,6 +9,11 @@ const initialState: BlanQStateProps = {
   quizChunk: [],
   answer: '',
   wrongAnswers: [],
+  member: {
+    memberId: '',
+    nickname: '',
+    profileUrl: '',
+  },
 }
 
 export const BlanQStore = create<BlanQStoreProps>()(
@@ -24,17 +29,22 @@ export const BlanQStore = create<BlanQStoreProps>()(
       setQuizChunk: (quizChunk) => set((state) => ({ ...state, quizChunk })),
       setWrongAnswers: (wrongAnswers) =>
         set((state) => ({ ...state, wrongAnswers })),
+      setMember: (member) => set((state) => ({ ...state, member })),
     },
   })),
 )
 
 const useBlanQStore = () =>
-  BlanQStore(({ quiz, code, quizChunk, answer, wrongAnswers }) => ({
-    quiz,
-    code,
-    quizChunk,
-    answer,
-    wrongAnswers,
-  }))
+  BlanQStore(
+    ({ taskId, quiz, code, quizChunk, answer, wrongAnswers, member }) => ({
+      taskId,
+      quiz,
+      code,
+      quizChunk,
+      answer,
+      wrongAnswers,
+      member,
+    }),
+  )
 const useBlanQActions = () => BlanQStore((state) => state.actions)
 export { useBlanQStore, useBlanQActions }
