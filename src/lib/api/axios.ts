@@ -1,5 +1,5 @@
 import parseCookies from '../parseCookies'
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 // 쿠키에 저장된 토큰을 인증 헤더에 자동으로 추가하여 요청을 보낼 수 있습니다.
@@ -53,6 +53,10 @@ const Apis = {
   default: {
     async GET<T>(path: string, option?: { params: string }) {
       const data = await defaultAxios.get<T>(path, option)
+      return data.data
+    },
+    async POST<T>(path: string, body: T, option?: AxiosRequestConfig) {
+      const data = await defaultAxios.post(path, body, option)
       return data.data
     },
   },

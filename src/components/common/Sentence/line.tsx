@@ -1,3 +1,5 @@
+import { useBlanQStore } from '@/store/blanQ'
+import { useEffect } from 'react'
 import Cubic from './cubic'
 import St from './styles'
 
@@ -7,11 +9,16 @@ interface LineProps {
 }
 
 const Line = ({ chunks, blank }: LineProps) => {
-  console.log(chunks)
   return (
     <St.Line.Wrapper>
       {chunks.map((chunk, idx) =>
-        chunk != '@' ? <span key={idx}>{chunk}</span> : <Cubic key={idx} />,
+        chunk != '@' ? (
+          <span key={idx}>{chunk}</span>
+        ) : blank ? (
+          <Cubic key={idx} blank={blank} />
+        ) : (
+          <Cubic key={idx} />
+        ),
       )}
     </St.Line.Wrapper>
   )

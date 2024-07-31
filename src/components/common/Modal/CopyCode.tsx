@@ -10,15 +10,15 @@ interface ModalProp {
   handleClose: () => void
 
   handleQuizCode: () => void
-  quizCode: string
+  code: string
 }
 
-const MakeQuizModal = ({
+const CopyCodeModal = ({
   isOpen,
   handleClose,
   handleQuizCode,
 
-  quizCode,
+  code,
 }: ModalProp) => {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement | null>(null) //내부 버튼 영역
@@ -52,8 +52,8 @@ const MakeQuizModal = ({
               <St.Sub>링크를 공유해서 친구들과 가까워져요</St.Sub>
             </div>
             <St.Text.Container>
-              <span>{quizCode}</span>
-              <button onClick={() => onCopy(quizCode)}>
+              <span>{code}</span>
+              <button onClick={() => onCopy(code)}>
                 <Image
                   src={`/assets/icon/copy.png`}
                   alt="close icon"
@@ -71,4 +71,4 @@ const MakeQuizModal = ({
   )
 }
 
-export default MakeQuizModal
+export default CopyCodeModal

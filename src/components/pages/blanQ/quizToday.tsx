@@ -27,7 +27,7 @@ const QuizToday = () => {
         <CopyCodeModal
           isOpen={isOpen}
           handleClose={closeModal}
-          quizCode={code}
+          code={code}
           handleQuizCode={handleCopyCode}
         />
       )}
