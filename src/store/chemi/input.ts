@@ -1,4 +1,4 @@
-import { InputStoreProps } from '@/types/chemi'
+import { InputStoreProps } from '@/types/store/chemi'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 

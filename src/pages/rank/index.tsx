@@ -1,6 +1,7 @@
 import FriendQuiz from '@/components/common/FriendQuiz'
 import Title from '@/components/common/Layout/Title'
 import Score from '@/components/pages/rank/score'
+
 const Rank = () => {
   return (
     <div>

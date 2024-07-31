@@ -1,4 +1,4 @@
-import { BlanQStoreProps, BlanQStateProps } from '@/types/blanQ'
+import { BlanQStoreProps, BlanQStateProps } from '@/types/store/blanQ'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
