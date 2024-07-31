@@ -1,6 +1,6 @@
 export type QuizWithAnswerProps = {
   content: Tcontent
-  answer: string
+  answer: answer
 }
 
 export type QuestProps = {
@@ -10,3 +10,4 @@ export type QuestProps = {
 
 export type Tcontent = string[]
 export type TtaskId = string
+export type answer = string
