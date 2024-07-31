@@ -6,15 +6,15 @@ const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
 `
 
-const Main = styled.h1`
+const Main = styled.div`
   ${FONTS.h1}
-  margin-bottom:1rem;
 `
 
 const Content = styled.p`
-  ${FONTS.body2}
+  ${FONTS.body1}
 `
 
 const St = {

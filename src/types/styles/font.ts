@@ -1,6 +1,7 @@
 export interface fontProps {
+  font: string
   weight: number
   size: number
-  lineHeight: string
+
   letterSpacing: string
 }

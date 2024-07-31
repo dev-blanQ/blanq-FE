@@ -1,121 +1,79 @@
 import { fontProps } from '@/types'
 
-function FONT({ weight, size, lineHeight, letterSpacing }: fontProps): string {
+function FONT({ font, weight, size, letterSpacing }: fontProps): string {
   return `
-    font-family:inherit;
+    font-family:${font};
     font-weight: ${weight};
     font-size: ${size}rem;
-    line-height: ${lineHeight};
     letter-spacing: ${letterSpacing};
   `
 }
 
+const HEADER = {
+  title: FONT({
+    weight: 700,
+    size: 2,
+    font: 'Poppins',
+    letterSpacing: 'normal',
+  }),
+  body: FONT({
+    weight: 600,
+    size: 1.3,
+    font: 'Poppins',
+    letterSpacing: 'normal',
+  }),
+}
+
 export const FONTS = {
   h1: FONT({
-    weight: 700,
+    weight: 800 /*ExtraBold*/,
     size: 6,
-    lineHeight: 'normal',
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
-  //h2: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 4 }),
-  //body1: FONT({ weight: 600, size: 1.6, lineHeight: 140, letterSpacing: 3 }),
+  h2: FONT({
+    weight: 800 /*ExtraBold*/,
+    size: 2,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
+  body1: FONT({
+    weight: 600 /*SemiBold*/,
+    size: 1.8,
+    font: 'Pretendard',
+    letterSpacing: 'normal',
+  }),
   body2: FONT({
-    weight: 700,
-    size: 1.5,
-    lineHeight: 'normal',
+    weight: 600,
+    size: 1.4,
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
-
   body3: FONT({
-    weight: 700,
+    weight: 500 /*Medium*/,
     size: 1.6,
-    lineHeight: 'normal',
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body4: FONT({
-    weight: 400,
-    size: 1.6,
-    lineHeight: 'normal',
+    weight: 500,
+    size: 1.2,
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body5: FONT({
-    weight: 700,
+    weight: 400 /*Regular*/,
     size: 1.6,
-    lineHeight: 'normal',
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
   body6: FONT({
     weight: 400,
-    size: 1.6,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body7: FONT({
-    weight: 700,
     size: 1.4,
-    lineHeight: 'normal',
+    font: 'Pretendard',
     letterSpacing: 'normal',
   }),
-  body8: FONT({
-    weight: 400,
-    size: 1.4,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body9: FONT({
-    weight: 700,
-    size: 1.2,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  body10: FONT({
-    weight: 400,
-    size: 1.2,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),
-  //body5: FONT({ weight: 700, size: 2.4, lineHeight: 140, letterSpacing: 4 }),
-  //body6: FONT({ weight: 400, size: 1.4, lineHeight: 140, letterSpacing: 3 }),
-  //body7: FONT({ weight: 500, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  /*body8: FONT({
-    weight: 400,
-    size: 2,
-    lineHeight: 140,
-    letterSpacing: 4,
-    notoSans: true,
-  }),*/
-  //body9: FONT({ weight: 600, size: 2, lineHeight: 130, letterSpacing: 3 }),
-  //body10: FONT({ weight: 600, size: 2.4, lineHeight: 130, letterSpacing: 4 }),
-  //body11: FONT({ weight: 400, size: 1.5, lineHeight: 140, letterSpacing: 4 }),
-  //body12: FONT({ weight: 400, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  /*caption1: FONT({
-    weight: 400,
-    size: 1.2,
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-  }),*/
-  //caption2: FONT({ weight: 500, size: 1, lineHeight: 130, letterSpacing: 4 }),
-  //caption3: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  //caption4: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 3 }),
-  //caption5: FONT({ weight: 400, size: 1.1, lineHeight: 140, letterSpacing: 4 }),
-  /*caption05: FONT({
-    weight: 700,
-    size: 1.2,
-    lineHeight: 140,
-    letterSpacing: 4,
-  }),*/
-  //btn1: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 3 }),
-  //btn2: FONT({ weight: 400, size: 1.4, lineHeight: 130, letterSpacing: 4 }),
-  //btn3: FONT({ weight: 300, size: 1.6, lineHeight: 140, letterSpacing: 4 }),
-  //btn4: FONT({ weight: 300, size: 1, lineHeight: 140, letterSpacing: 4 }),
-  //footer1: FONT({ weight: 600, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  //footer2: FONT({ weight: 400, size: 1.2, lineHeight: 140, letterSpacing: 4 }),
-  /*cardBody5: FONT({
-    weight: 700,
-    size: 2.3,
-    lineHeight: 140,
-    letterSpacing: 4,
-  }),*/
+  HEADER,
 }
 
 export type FontsKeyType = keyof typeof FONTS

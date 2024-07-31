@@ -1,10 +1,15 @@
 import styled from '@emotion/styled'
 import { useTimer } from '@/hooks'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   // 2초 뒤에 홈 메뉴 화면으로 이동
 
-  useTimer(2000, () => (location.href = 'home'))
+  const router = useRouter()
+  useEffect(() => {
+    router.push('/blanQ')
+  }, [])
 
   return (
     <>
